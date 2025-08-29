@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malla Terapia Ocupacional</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header>
+    <h1>Malla Curricular - Terapia Ocupacional</h1>
+  </header>
+
+  <main id="malla">
+    <!-- Ejemplo de 3 semestres, puedes añadir más -->
+    <div class="semestre">
+      <h2>1° Semestre</h2>
+      <div class="ramo" data-id="desarrollo" data-prereq="">Desarrollo personal y autoconocimiento</div>
+      <div class="ramo" data-id="fundamentos" data-prereq="">Fundamentos de Terapia Ocupacional</div>
+      <div class="ramo" data-id="estudios" data-prereq="">Estudios en ocupación y Terapia Ocupacional</div>
+      <div class="ramo" data-id="anatomia" data-prereq="">Anatomía humana</div>
+      <div class="ramo" data-id="psicologia" data-prereq="">Psicología general</div>
+    </div>
+
+    <div class="semestre">
+      <h2>2° Semestre</h2>
+      <div class="ramo" data-id="participacion" data-prereq="fundamentos">Participación Ocupacional I</div>
+      <div class="ramo" data-id="creatividad" data-prereq="">Desarrollo de la creatividad</div>
+      <div class="ramo" data-id="filosofia" data-prereq="estudios">Filosofía de la Ocupación</div>
+      <div class="ramo" data-id="biologia" data-prereq="anatomia">Biología y Microbiología</div>
+      <div class="ramo" data-id="fisiologia" data-prereq="anatomia">Fisiología general</div>
+    </div>
+
+    <div class="semestre">
+      <h2>3° Semestre</h2>
+      <div class="ramo" data-id="participacion2" data-prereq="participacion">Participación Ocupacional II</div>
+      <div class="ramo" data-id="razonamiento" data-prereq="fundamentos">Razonamiento Estratégico en TO</div>
+      <div class="ramo" data-id="evidencia" data-prereq="filosofia">Salud basada en evidencia</div>
+      <div class="ramo" data-id="fisio" data-prereq="fisiologia">Fisiopatología</div>
+      <div class="ramo" data-id="neuro" data-prereq="biologia">Neurociencias</div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
