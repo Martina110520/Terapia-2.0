@@ -1,45 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Malla Terapia Ocupacional</title>
-  <link rel="stylesheet" href="estilos.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Malla Terapia Ocupacional – U. Mayor</title>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-  <header>
-    <h1>Malla Curricular - Terapia Ocupacional</h1>
+  <header class="topbar">
+    <div class="brand">
+      <h1>Terapia Ocupacional</h1>
+      <p>Universidad Mayor · Chile</p>
+    </div>
+
+    <div class="controls">
+      <button id="exportar" title="Exportar progreso a un archivo JSON">Exportar</button>
+      <label class="importer">
+        Importar
+        <input type="file" id="importar" accept="application/json" />
+      </label>
+      <button id="reiniciar" class="danger" title="Borrar todo el progreso">Reiniciar</button>
+    </div>
   </header>
 
-  <main id="malla">
-    <!-- Ejemplo de 3 semestres, puedes añadir más -->
-    <div class="semestre">
-      <h2>1° Semestre</h2>
-      <div class="ramo" data-id="desarrollo" data-prereq="">Desarrollo personal y autoconocimiento</div>
-      <div class="ramo" data-id="fundamentos" data-prereq="">Fundamentos de Terapia Ocupacional</div>
-      <div class="ramo" data-id="estudios" data-prereq="">Estudios en ocupación y Terapia Ocupacional</div>
-      <div class="ramo" data-id="anatomia" data-prereq="">Anatomía humana</div>
-      <div class="ramo" data-id="psicologia" data-prereq="">Psicología general</div>
+  <section class="panel">
+    <div class="legend">
+      <span class="tag area-prof">Formación Profesional</span>
+      <span class="tag area-bio">Formación Biomédica</span>
+      <span class="tag area-elec">Electivos</span>
+      <span class="tag area-c2">Ciclo 2 / Titulación</span>
+      <span class="tag locked">Bloqueado</span>
+      <span class="tag done">Aprobado</span>
     </div>
 
-    <div class="semestre">
-      <h2>2° Semestre</h2>
-      <div class="ramo" data-id="participacion" data-prereq="fundamentos">Participación Ocupacional I</div>
-      <div class="ramo" data-id="creatividad" data-prereq="">Desarrollo de la creatividad</div>
-      <div class="ramo" data-id="filosofia" data-prereq="estudios">Filosofía de la Ocupación</div>
-      <div class="ramo" data-id="biologia" data-prereq="anatomia">Biología y Microbiología</div>
-      <div class="ramo" data-id="fisiologia" data-prereq="anatomia">Fisiología general</div>
+    <div class="progress-wrap">
+      <div class="progress-text">
+        Progreso: <strong id="progresoPorc">0%</strong> (<span id="aprobados">0</span>/<span id="total">0</span> ramos)
+      </div>
+      <div class="progress">
+        <div id="progressBar"></div>
+      </div>
     </div>
+  </section>
 
-    <div class="semestre">
-      <h2>3° Semestre</h2>
-      <div class="ramo" data-id="participacion2" data-prereq="participacion">Participación Ocupacional II</div>
-      <div class="ramo" data-id="razonamiento" data-prereq="fundamentos">Razonamiento Estratégico en TO</div>
-      <div class="ramo" data-id="evidencia" data-prereq="filosofia">Salud basada en evidencia</div>
-      <div class="ramo" data-id="fisio" data-prereq="fisiologia">Fisiopatología</div>
-      <div class="ramo" data-id="neuro" data-prereq="biologia">Neurociencias</div>
-    </div>
+  <main id="malla" class="malla">
+    <!-- Se llena dinámicamente -->
   </main>
+
+  <footer>
+    <p>Hecho con ❤️ para estudiantes de TO U. Mayor · Guarda tu progreso automáticamente</p>
+  </footer>
+
+  <template id="cardTemplate">
+    <article class="ramo locked" tabindex="0" role="button" aria-pressed="false">
+      <header>
+        <h3 class="nombre"></h3>
+      </header>
+      <div class="pill semestre"></div>
+      <div class="pill area"></div>
+      <div class="prereqs"></div>
+      <div class="actions">
+        <button class="toggle">Marcar aprobado</button>
+      </div>
+    </article>
+  </template>
 
   <script src="script.js"></script>
 </body>
