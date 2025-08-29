@@ -1,0 +1,68 @@
+/* Estilos generales */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff0f6;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background: #f06292;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+main {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.semestre {
+  background: #fce4ec;
+  border-radius: 10px;
+  padding: 15px;
+  min-width: 220px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.semestre h2 {
+  text-align: center;
+  color: #ad1457;
+  font-size: 1.2rem;
+}
+
+.ramo {
+  background: white;
+  border: 2px solid #f48fb1;
+  border-radius: 8px;
+  margin: 8px 0;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.ramo:hover {
+  background: #fce4ec;
+}
+
+.ramo.aprobado {
+  background: #f8bbd0;
+  color: #777;
+  text-decoration: line-through;
+}
+
+.ramo.bloqueado {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
